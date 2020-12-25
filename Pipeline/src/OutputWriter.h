@@ -39,8 +39,8 @@ public:
 	void writeResult(const std::string&);
 
 private:
-	const bool ifFileOpened;
 	std::ofstream stream;
+	const bool ifFileOpened;
 	OutputStateDescriptions stateDescriptions{};
 	unsigned int linesWriten = 0;
 	const std::list<Command>* commands = nullptr;

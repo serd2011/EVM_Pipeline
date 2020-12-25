@@ -28,7 +28,7 @@ namespace stuff {
 		for (int i = 0; i < count; i++) {
 			std::cout << i + 1 << ") " << options[i] << std::endl;
 		}
-		return getNumberFromCin<size_t>("Ваш выбор >>> ", 1, count + 1) - 1;
+		return getNumberFromCin<size_t>("Ваш выбор >>> ", 1, count) - 1;
 	}
 
 	template<typename T, size_t size>

@@ -3,7 +3,7 @@
 #include <iomanip>
 #include <iostream>
 
-OutputWriter::OutputWriter(unsigned int reservedLines) :stream(config::output::outputFileName, std::ios::trunc), ifFileOpened(!stream.is_open()) {
+OutputWriter::OutputWriter(unsigned int reservedLines) :stream(config::output::outputFileName, std::ios::trunc), ifFileOpened(stream.is_open()) {
 	if (!this->ifFileOpened) {
 		std::cout << "Ошибка открытия файла!" << std::endl;
 		return;
@@ -49,9 +49,11 @@ void OutputWriter::writeTickInfo() {
 			continue;
 		}
 		switch (it->state) {
+
 		case State::IF:
 			this->stream << this->stateDescriptions[outputSatate::IF].name;
 			break;
+
 		case State::FOP:
 			if (it->isFirstOpReg) {
 				this->stream << this->stateDescriptions[outputSatate::FOP_REG].name;
@@ -63,6 +65,7 @@ void OutputWriter::writeTickInfo() {
 				}
 			}
 			break;
+
 		case State::SOP:
 			if (it->isSecondOpReg) {
 				this->stream << this->stateDescriptions[outputSatate::SOP_REG].name;
@@ -74,9 +77,11 @@ void OutputWriter::writeTickInfo() {
 				}
 			}
 			break;
+
 		case State::EX:
 			this->stream << this->stateDescriptions[outputSatate::EX].name;
 			break;
+
 		case State::RES:
 			if (it->isSecondOpReg) {
 				this->stream << this->stateDescriptions[outputSatate::RES_REG].name;

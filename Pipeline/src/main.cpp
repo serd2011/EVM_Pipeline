@@ -11,7 +11,7 @@ CommandTypes getCommandTypes();
 int main() {
 	std::locale::global(std::locale("ru_RU.UTF-8"));
 
-	unsigned int maxCommandCount = stuff::getNumberFromCin<unsigned int>("Введите максимальное количество команд:", 1);
+	unsigned int maxCommandCount = stuff::getNumberFromCin<int>("Введите максимальное количество команд:", 1);
 	unsigned int memoryAccessTime = stuff::getOption("Время доступа к памяти:", config::memoryAccessTimeOptions);
 
 	CommandChances commandChances = getCommandChances();
